@@ -27,7 +27,7 @@ trait HasNotes
      */
     public function notes(): MorphMany
     {
-        return $this->morphMany((string) config('notes.model'), 'noteable');
+        return $this->morphMany(config('notes.model'), 'noteable');
     }
 
     /* -----------------------------------------------------------------

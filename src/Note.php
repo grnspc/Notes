@@ -1,6 +1,6 @@
 <?php
 
-namespace Grnspc\Notes\Models;
+namespace Grnspc\Notes;
 
 use Illuminate\Database\Eloquent\Model;
 

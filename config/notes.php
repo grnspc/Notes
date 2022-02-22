@@ -3,12 +3,12 @@
 return [
 	'table' => 'notes',
 
-	'model' => Grnspc\Notes\Notes::class,
+	'model' => Grnspc\Notes\Note::class,
 
 	'flags' => ['primary', 'billing', 'shipping'],
 
 	'rules' => [
-		'contect' => ['required', 'string', 'max:1500'],
+		'content' => ['required', 'string', 'max:1500'],
 		'author_id' => ['nullable', 'integer'],
 	],
 
