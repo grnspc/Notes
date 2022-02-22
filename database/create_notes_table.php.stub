@@ -1,0 +1,34 @@
+
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+return new class extends Migration
+{
+    public function __construct(protected $table = '')
+    {
+        parent::__construct();
+
+        $this->table(config('notes.table', 'notes'));
+    }
+
+    public function up()
+    {
+        Schema::create($this->table, function (Blueprint $table) {
+            $table->id();
+            $table->uuid('uuid')->nullable();
+            $table->nullableMorphs('noteable');
+            $table->text('content');
+            $table->foreignId('author_id')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists($this->table);
+    }
+}
